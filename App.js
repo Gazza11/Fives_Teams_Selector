@@ -43,9 +43,29 @@ const player10 = {
 
 const ListOfPlayers = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10]
 
+// Function sorts players from best to worst.
 function sortPlayers(players) {
     const sortedList = players.sort((a, b) => (a.value < b.value) ? 1 : -1)
     return sortedList
 }
 
-console.log(sortPlayers(ListOfPlayers))
+
+// Super function that will run all other functions and return with teams.
+function teamSelector(players) {
+    const sortedList = sortPlayers(players)
+    let pairedPlayersArray = []
+
+    // Splits players into pairs
+    for (let counter =0 ; counter < Object.keys(players).length; counter ++){
+        let tempArray = []
+        if( counter % 2 != 0 && counter !=0){
+            tempArray.push(sortedList[(counter - 1)])
+            tempArray.push(sortedList[counter])
+            pairedPlayersArray.push(tempArray)
+            tempArray = []
+        }
+    }
+    return pairedPlayersArray
+}
+
+console.log(teamSelector(ListOfPlayers))
