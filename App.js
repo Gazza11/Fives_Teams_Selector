@@ -40,3 +40,12 @@ const player10 = {
     name: 'player10',
     value: 7.9
 }   
+
+const ListOfPlayers = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10]
+
+function sortPlayers(players) {
+    const sortedList = players.sort((a, b) => (a.value < b.value) ? 1 : -1)
+    return sortedList
+}
+
+console.log(sortPlayers(ListOfPlayers))
