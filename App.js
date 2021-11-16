@@ -65,7 +65,21 @@ function teamSelector(players) {
             tempArray = []
         }
     }
-    return pairedPlayersArray
+
+    teamCreator(pairedPlayersArray)
+}
+
+
+function teamCreator(listOfPairs){
+    let team1 = []
+    let team2 = []
+
+    for (let i = 0; i < listOfPairs.length; i ++){
+        team1.push(listOfPairs[i].splice(Math.round(Math.random()), 1))
+        console.log(team1)
+    }
+
 }
 
 console.log(teamSelector(ListOfPlayers))
+
