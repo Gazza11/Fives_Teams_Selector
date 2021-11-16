@@ -66,19 +66,30 @@ function teamSelector(players) {
         }
     }
 
-    teamCreator(pairedPlayersArray)
+    let teams = teamCreator(pairedPlayersArray)
+
+    return teams
 }
 
 
 function teamCreator(listOfPairs){
     let team1 = []
     let team2 = []
+    let randomNumber
 
     for (let i = 0; i < listOfPairs.length; i ++){
-        team1.push(listOfPairs[i].splice(Math.round(Math.random()), 1))
-        console.log(team1)
-    }
+        randomNumber = Math.round(Math.random()), 1
 
+        if(randomNumber == 0){
+            team1.push(listOfPairs[i].shift())
+            team2.push(listOfPairs[i].pop())
+        } else {
+            team1.push(listOfPairs[i].pop())
+            team2.push(listOfPairs[i].pop())
+        }
+    }
+    let teams = [team1, team2]
+    return teams
 }
 
 console.log(teamSelector(ListOfPlayers))
